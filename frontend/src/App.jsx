@@ -1,12 +1,11 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
-
+import Sentence from "./Components/Sentence.jsx";
+import TypingArea from "./Components/TypingArea.jsx";
 function App() {
-  const paragraph = "Hello World";
-
-
+  return(
+      <div className="flex justify-center items-center h-screen">
+          <TypingArea />
+      </div>
+  )
 }
 
 export default App
