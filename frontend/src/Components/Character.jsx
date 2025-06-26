@@ -6,12 +6,10 @@ const Character = (props) => {
     const [divColor, setDivColor] = useState({
         backgroundColor: "none",
     });
-    const typed = props.typed;
-    const paragraph = props.para;
-    const sentenceId = props.sentenceId;
+    const { character, globalIndex, typed } = props;
     useEffect(() => {
-        if (typed && typed[props.id]) {
-            if (typed[props.id] === paragraph[sentenceId][props.id]) {
+        if (typed && typed.length > globalIndex) {
+            if (typed[globalIndex] === character) {
                 setDivColor({ backgroundColor: "green" });
             } else {
                 setDivColor({ backgroundColor: "red" });
@@ -19,7 +17,7 @@ const Character = (props) => {
         } else {
             setDivColor({ backgroundColor: "none" });
         }
-    }, [typed, props.id, paragraph]);
+    }, [typed, globalIndex, character]);
     return(
         <span className={charStyle} style={divColor}>{props.character}</span>
     )

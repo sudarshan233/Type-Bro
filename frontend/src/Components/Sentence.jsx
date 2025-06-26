@@ -2,7 +2,7 @@ import Character from "./Character.jsx";
 import '../index.css';
 
 const Sentence = (props) => {
-    const { sentence } = props;
+    const { sentence, startIndex, sentenceId, paragraph, input } = props;
     try {
 
         return (
@@ -12,9 +12,10 @@ const Sentence = (props) => {
                         key={index}
                         id={index}
                         character={character}
-                        sentenceId={props.sentenceId}
-                        para={props.paragraph}
-                        typed={props.input}/>
+                        globalIndex={startIndex + index}
+                        sentenceId={sentenceId}
+                        para={paragraph}
+                        typed={input}/>
                 })}
             </div>
         )

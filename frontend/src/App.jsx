@@ -4,7 +4,8 @@ import {useEffect, useState} from "react";
 function App() {
     const [input, setInput] = useState([]);
     const logKey = (event) => {
-        setInput(event.target.value);
+        const value = event.target.value.replace(/\n/g, '');
+        setInput(value);
     }
     return(
       <div className="flex flex-col justify-center items-center h-screen">
