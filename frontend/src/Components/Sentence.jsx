@@ -1,11 +1,15 @@
 import Character from "./Character.jsx";
 import '../index.css';
+import {useEffect, useState} from "react";
 
 const Sentence = (props) => {
     const { sentence } = props;
+
     return (
-        <div className="flex gap-5">
-            {sentence.map((character, index) => <Character key={index} character={character} />)}
+        <div className="flex">
+            {sentence.map((character, index) => {
+                return <Character key={index} character={character} typed={props.typed} text={sentence}/>
+            })}
         </div>
     )
 }

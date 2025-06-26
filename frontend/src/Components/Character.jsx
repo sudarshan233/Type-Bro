@@ -1,7 +1,14 @@
 import '../index.css';
+
 const Character = (props) => {
+    let charStyle = "border-black text-3xl whitespace-pre";
+    const typed = props.typed;
+    const sentence = props.text;
+    sentence.map((character, index) => {
+        charStyle += typed[index] === character ? " bg-green-500" : "bg-red-500";
+    })
     return(
-        <div className="border-black border-2 p-1">{props.character}</div>
+        <span className={charStyle}>{props.character}</span>
     )
 }
 
