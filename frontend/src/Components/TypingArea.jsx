@@ -10,7 +10,12 @@ const TypingArea = (props) => {
     return (
         <section className="h-96 flex flex-col">
             <div className='flex flex-col justify-self-start mt-20 mb-20'>
-                {paragraph.map((sentence, index) => <Sentence key={index} sentence={sentence} typed={props.typed}/>)}
+                {paragraph.map((sentence, index) => <Sentence
+                    key={index}
+                    sentenceId={index}
+                    sentence={sentence}
+                    paragraph={paragraph}
+                    input={props.typed}/>)}
             </div>
         </section>
     )
