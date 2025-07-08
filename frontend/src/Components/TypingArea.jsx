@@ -1,12 +1,19 @@
 import Sentence from "./Sentence.jsx";
-import {useState} from "react";
 
+import scoreMatrix from "../../../backend/ScoreMatrix.js";
+import {calculateParaLength} from "../../../backend/helpers.js";
 
 const TypingArea = (props) => {
     const paragraph = [
-        ['I', ' ', 'a', 'm', ' ', 'B', 'a', 't', 'm', 'a', 'n'],
-        ['Y', 'o', 'u', ' ', 'a', 'r', 'e', '?'],
+        ['I', ' ', 'a', 'm', ' ', 'B', 'a', 't', 'm', 'a', 'n','\n','Y', 'o', 'u', ' ', 'a', 'r', 'e', '?'],
     ]
+    const { typed, typedKeys } = props;
+
+    const paragraphLength = calculateParaLength(paragraph);
+    if(typed.length === paragraphLength)
+    {
+        scoreMatrix(typedKeys, paragraph);
+    }
     let cumulativeIndex = 0;
     return (
         <section className="h-96 flex flex-col">
@@ -18,7 +25,7 @@ const TypingArea = (props) => {
                             sentenceId={index}
                             sentence={sentence}
                             paragraph={paragraph}
-                            input={props.typed}
+                            input={typed}
                             startIndex={cumulativeIndex}/>
                     )
                     cumulativeIndex += sentence.length;
