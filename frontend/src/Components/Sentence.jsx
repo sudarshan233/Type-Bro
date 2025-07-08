@@ -1,4 +1,4 @@
-import Character from "./Character.jsx";
+import Character from "./Letter.jsx";
 import '../index.css';
 
 const Sentence = (props) => {

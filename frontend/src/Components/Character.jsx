@@ -1,26 +1,6 @@
-import '../index.css';
-import { useEffect, useState } from "react";;
-
-const Character = (props) => {
-    let charStyle = "border-black text-3xl whitespace-pre";
-    const [divColor, setDivColor] = useState({
-        backgroundColor: "none",
-    });
-    const { character, globalIndex, typed } = props;
-    useEffect(() => {
-        if (typed && typed.length > globalIndex) {
-            if (typed[globalIndex] === character) {
-                setDivColor({ backgroundColor: "green" });
-            } else {
-                setDivColor({ backgroundColor: "red" });
-            }
-        } else {
-            setDivColor({ backgroundColor: "none" });
-        }
-    }, [typed, globalIndex, character]);
-    return(
-        <span className={charStyle} style={divColor}>{props.character}</span>
-    )
-}
-
-export default Character
+import React, { useEffect, useState } from 'react';
+export const paraList='Hello I am Pradeep Kumar Ramesh I am a Fullstack Developer I love codingI am learning React'.split('');
+const Character = () => {
+    return(<div>{paraList.map((para, i) => <span style={{fontSize:40}}key={i}>{paraList[i]}</span>)}</div>)
+};
+export default Character;
