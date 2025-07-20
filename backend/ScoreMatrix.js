@@ -1,6 +1,7 @@
 import {
     isAlphabet,
 } from "./helpers.js";
+import {model} from "./Models/model.js";
 
 const scoreMatrix = (logMatrix, paragraph) => {
     console.log("Paragraph: ", paragraph);
@@ -33,6 +34,11 @@ const scoreMatrix = (logMatrix, paragraph) => {
         })
     })
     console.log(checkMatrix);
+    const errors = model(logMatrix, checkMatrix,
+        `The keys typed by the user is given as logMatrix and checkMatrix is the correct version of
+        sequence of keys that needs to be typed. Log Matrix: ${logMatrix} Check Matrix: ${checkMatrix}. Please
+    tell me the places where I have made a mistake.`);
+    console.log(errors);
 }
 
 // const calculateScore = (logMatrix, checkMatrix) => {

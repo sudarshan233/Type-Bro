@@ -1,6 +1,7 @@
-import TypingArea from "./Components/TypingArea.jsx";
-import InputArea from "./Components/InputArea.jsx";
 import {useEffect, useState} from "react";
+import Character from "./Components/Character.jsx";
+import TextArea from "./Components/TextArea.jsx";
+
 function App() {
     const [input, setInput] = useState([]);
     const [inputKey, setInputKey] = useState([]);
@@ -16,8 +17,8 @@ function App() {
     }
     return(
       <div className="flex flex-col justify-center items-center h-screen">
-          <TypingArea typed={input} typedKeys={inputKey}/>
-          <InputArea handleChange={logChange} handleKey={logKey}/>
+          <Character />
+          <TextArea />
       </div>
     )
 }
