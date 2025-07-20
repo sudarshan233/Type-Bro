@@ -11,7 +11,8 @@
   "type": "module",
   "description": "",
   "dependencies": {
-    "@huggingface/inference": "^4.4.0"
+    "@huggingface/inference": "^4.4.0",
+    "dotenv": "^17.2.0"
   },
   "devDependencies": {
     "nodemon": "^3.1.10"

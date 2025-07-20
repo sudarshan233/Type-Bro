@@ -1,6 +1,8 @@
 import { InferenceClient } from "@huggingface/inference";
+import dotenv from "dotenv";
+dotenv.config();
 
-const client = new InferenceClient("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");
+const client = new InferenceClient(process.env.HF_API_TOKEN);
 export async function model(logMatrix, checkMatrix, prompt) {
     const chatCompletion = await client.chatCompletion({
         provider: "novita",
